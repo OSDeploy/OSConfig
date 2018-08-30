@@ -1,0 +1,10 @@
+;======================================================================================
+;	Author: David Segura
+;	Version: 18.8.27
+;	https://www.osdeploy.com/
+;	This is a LGPO (Local GPO) file
+;======================================================================================
+Computer
+SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+Manufacturer
+OSDeploy

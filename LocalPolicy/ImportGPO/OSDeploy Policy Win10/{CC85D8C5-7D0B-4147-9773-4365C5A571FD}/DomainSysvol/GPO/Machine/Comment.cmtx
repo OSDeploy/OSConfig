@@ -1,0 +1,115 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<policyComments xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/CommentDefinitions">
+  <policyNamespaces>
+    <using prefix="ns0" namespace="FullArmor.Policies.3B9EA2B5_A1D1_4CD5_9EDE_75B22990BC21"></using>
+    <using prefix="ns1" namespace="Microsoft.Policies.AllowBuildPreview"></using>
+    <using prefix="ns2" namespace="Microsoft.Policies.AppxRuntime"></using>
+    <using prefix="ns3" namespace="Microsoft.Policies.AutoPlay"></using>
+    <using prefix="ns4" namespace="Microsoft.Policies.CloudContent"></using>
+    <using prefix="ns5" namespace="Microsoft.Policies.ControlPanel2"></using>
+    <using prefix="ns6" namespace="Microsoft.Policies.ControlPanelDisplay"></using>
+    <using prefix="ns7" namespace="Microsoft.Policies.CredentialProviders"></using>
+    <using prefix="ns8" namespace="Microsoft.Policies.DeviceInstallation"></using>
+    <using prefix="ns9" namespace="Microsoft.Policies.DeviceSoftwareSetup"></using>
+    <using prefix="ns10" namespace="Microsoft.Policies.FeedbackNotifications"></using>
+    <using prefix="ns11" namespace="Microsoft.Policies.GameDVR"></using>
+    <using prefix="ns12" namespace="Microsoft.Policies.GameExplorer"></using>
+    <using prefix="ns13" namespace="Microsoft.Policies.InternetCommunicationManagement"></using>
+    <using prefix="ns14" namespace="Microsoft.Policies.MicrosoftEdge"></using>
+    <using prefix="ns15" namespace="Microsoft.Policies.NetworkSharing"></using>
+    <using prefix="ns16" namespace="Microsoft.Policies.OneDrive"></using>
+    <using prefix="ns17" namespace="Microsoft.Policies.SettingSync"></using>
+    <using prefix="ns18" namespace="Microsoft.Policies.SideBar"></using>
+    <using prefix="ns19" namespace="Microsoft.Policies.SmartScreen"></using>
+    <using prefix="ns20" namespace="Microsoft.Policies.WindowsExplorer"></using>
+    <using prefix="ns21" namespace="Microsoft.Policies.WindowsLogon"></using>
+    <using prefix="ns22" namespace="Microsoft.Policies.WindowsStore"></using>
+    <using prefix="ns23" namespace="Microsoft.Policies.WindowsUpdate"></using>
+  </policyNamespaces>
+  <comments>
+    <admTemplate>
+      <comment policyRef="ns0:AllowCortana" commentText="$(resource.ns0_AllowCortana)"></comment>
+      <comment policyRef="ns0:AllowCortanaAboveLock" commentText="$(resource.ns0_AllowCortanaAboveLock)"></comment>
+      <comment policyRef="ns0:DisableRemovableDriveIndexing" commentText="$(resource.ns0_DisableRemovableDriveIndexing)"></comment>
+      <comment policyRef="ns0:DoNotUseWebResults" commentText="$(resource.ns0_DoNotUseWebResults)"></comment>
+      <comment policyRef="ns1:AllowBuildPreview" commentText="$(resource.ns1_AllowBuildPreview)"></comment>
+      <comment policyRef="ns2:AppxRuntimeMicrosoftAccountsOptional" commentText="$(resource.ns2_AppxRuntimeMicrosoftAccountsOptional)"></comment>
+      <comment policyRef="ns3:Autorun" commentText="$(resource.ns3_Autorun)"></comment>
+      <comment policyRef="ns3:NoAutorun" commentText="$(resource.ns3_NoAutorun)"></comment>
+      <comment policyRef="ns4:DisableWindowsConsumerFeatures" commentText="$(resource.ns4_DisableWindowsConsumerFeatures)"></comment>
+      <comment policyRef="ns5:UseDefaultTile" commentText="$(resource.ns5_UseDefaultTile)"></comment>
+      <comment policyRef="ns6:CPL_Personalization_NoChangingLockScreen" commentText="$(resource.ns6_CPL_Personalization_NoChangingLockScreen)"></comment>
+      <comment policyRef="ns6:CPL_Personalization_NoChangingStartMenuBackground" commentText="$(resource.ns6_CPL_Personalization_NoChangingStartMenuBackground)"></comment>
+      <comment policyRef="ns6:CPL_Personalization_NoLockScreenSlideshow" commentText="$(resource.ns6_CPL_Personalization_NoLockScreenSlideshow)"></comment>
+      <comment policyRef="ns7:BlockDomainPicturePassword" commentText="$(resource.ns7_BlockDomainPicturePassword)"></comment>
+      <comment policyRef="ns8:DeviceInstall_AllowAdminInstall" commentText="$(resource.ns8_DeviceInstall_AllowAdminInstall)"></comment>
+      <comment policyRef="ns9:DeviceMetadata_PreventDeviceMetadataFromNetwork" commentText="$(resource.ns9_DeviceMetadata_PreventDeviceMetadataFromNetwork)"></comment>
+      <comment policyRef="ns9:DriverSearchPlaces_SearchOrderConfiguration" commentText="$(resource.ns9_DriverSearchPlaces_SearchOrderConfiguration)"></comment>
+      <comment policyRef="ns9:DriverSearchPlaces_SearchServerConfiguration" commentText="$(resource.ns9_DriverSearchPlaces_SearchServerConfiguration)"></comment>
+      <comment policyRef="ns10:DoNotShowFeedbackNotifications" commentText="$(resource.ns10_DoNotShowFeedbackNotifications)"></comment>
+      <comment policyRef="ns11:AllowGameDVR" commentText="$(resource.ns11_AllowGameDVR)"></comment>
+      <comment policyRef="ns12:DownloadGameInfo_2" commentText="$(resource.ns12_DownloadGameInfo_2)"></comment>
+      <comment policyRef="ns12:GameUpdateOptions_2" commentText="$(resource.ns12_GameUpdateOptions_2)"></comment>
+      <comment policyRef="ns12:ListRecentlyPlayed_2" commentText="$(resource.ns12_ListRecentlyPlayed_2)"></comment>
+      <comment policyRef="ns13:RemoveWindowsUpdate_ICM" commentText="$(resource.ns13_RemoveWindowsUpdate_ICM)"></comment>
+      <comment policyRef="ns14:AllowWebContentOnNewTabPage" commentText="$(resource.ns14_AllowWebContentOnNewTabPage)"></comment>
+      <comment policyRef="ns15:DisableHomeGroup" commentText="$(resource.ns15_DisableHomeGroup)"></comment>
+      <comment policyRef="ns16:PreventOnedriveFileSync" commentText="$(resource.ns16_PreventOnedriveFileSync)"></comment>
+      <comment policyRef="ns17:DisableAppSyncSettingSync" commentText="$(resource.ns17_DisableAppSyncSettingSync)"></comment>
+      <comment policyRef="ns17:DisableSettingSync" commentText="$(resource.ns17_DisableSettingSync)"></comment>
+      <comment policyRef="ns19:ShellConfigureSmartScreen" commentText="$(resource.ns19_ShellConfigureSmartScreen)"></comment>
+      <comment policyRef="ns20:EnableSmartScreen" commentText="$(resource.ns20_EnableSmartScreen)"></comment>
+      <comment policyRef="ns20:ShowHibernateOption" commentText="$(resource.ns20_ShowHibernateOption)"></comment>
+      <comment policyRef="ns20:ShowLockOption" commentText="$(resource.ns20_ShowLockOption)"></comment>
+      <comment policyRef="ns21:EnableFirstLogonAnimation" commentText="$(resource.ns21_EnableFirstLogonAnimation)"></comment>
+      <comment policyRef="ns21:VerboseStatus" commentText="$(resource.ns21_VerboseStatus)"></comment>
+      <comment policyRef="ns22:DisableOSUpgrade_2" commentText="$(resource.ns22_DisableOSUpgrade_2)"></comment>
+      <comment policyRef="ns23:DisableDualScan" commentText="$(resource.ns23_DisableDualScan)"></comment>
+      <comment policyRef="ns23:ExcludeWUDriversInQualityUpdate" commentText="$(resource.ns23_ExcludeWUDriversInQualityUpdate)"></comment>
+      <comment policyRef="ns23:ManagePreviewBuilds" commentText="$(resource.ns23_ManagePreviewBuilds)"></comment>
+    </admTemplate>
+  </comments>
+  <resources minRequiredRevision="1.0">
+    <stringTable>
+      <string id="ns0_AllowCortana">OSDeploy Policy Win10</string>
+      <string id="ns0_AllowCortanaAboveLock">OSDeploy Policy Win10</string>
+      <string id="ns0_DisableRemovableDriveIndexing">OSDeploy Policy Win10</string>
+      <string id="ns0_DoNotUseWebResults">OSDeploy Policy Win10</string>
+      <string id="ns1_AllowBuildPreview">OSDeploy Policy Win10</string>
+      <string id="ns2_AppxRuntimeMicrosoftAccountsOptional">OSDeploy Policy Win10</string>
+      <string id="ns3_Autorun">OSDeploy Policy Win10</string>
+      <string id="ns3_NoAutorun">OSDeploy Policy Win10</string>
+      <string id="ns4_DisableWindowsConsumerFeatures">OSDeploy Policy Win10</string>
+      <string id="ns5_UseDefaultTile">OSDeploy Policy Win10</string>
+      <string id="ns6_CPL_Personalization_NoChangingLockScreen">OSDeploy Policy Win10</string>
+      <string id="ns6_CPL_Personalization_NoChangingStartMenuBackground">OSDeploy Policy Win10</string>
+      <string id="ns6_CPL_Personalization_NoLockScreenSlideshow">OSDeploy Policy Win10</string>
+      <string id="ns7_BlockDomainPicturePassword">OSDeploy Policy Win10</string>
+      <string id="ns8_DeviceInstall_AllowAdminInstall">OSDeploy Policy Win10</string>
+      <string id="ns9_DeviceMetadata_PreventDeviceMetadataFromNetwork">OSDeploy Policy Win10</string>
+      <string id="ns9_DriverSearchPlaces_SearchOrderConfiguration">OSDeploy Policy Win10</string>
+      <string id="ns9_DriverSearchPlaces_SearchServerConfiguration">OSDeploy Policy Win10</string>
+      <string id="ns10_DoNotShowFeedbackNotifications">OSDeploy Policy Win10</string>
+      <string id="ns11_AllowGameDVR">OSDeploy Policy Win10</string>
+      <string id="ns12_DownloadGameInfo_2">OSDeploy Policy Win10</string>
+      <string id="ns12_GameUpdateOptions_2">OSDeploy Policy Win10</string>
+      <string id="ns12_ListRecentlyPlayed_2">OSDeploy Policy Win10</string>
+      <string id="ns13_RemoveWindowsUpdate_ICM">OSDeploy Policy Win10</string>
+      <string id="ns14_AllowWebContentOnNewTabPage">OSDeploy Policy Win10</string>
+      <string id="ns15_DisableHomeGroup">OSDeploy Policy Win10</string>
+      <string id="ns16_PreventOnedriveFileSync">OSDeploy Policy Win10</string>
+      <string id="ns17_DisableAppSyncSettingSync">OSDeploy Policy Win10</string>
+      <string id="ns17_DisableSettingSync">OSDeploy Policy Win10</string>
+      <string id="ns19_ShellConfigureSmartScreen">OSDeploy Policy Win10</string>
+      <string id="ns20_EnableSmartScreen">OSDeploy Policy Win10</string>
+      <string id="ns20_ShowHibernateOption">OSDeploy Policy Win10</string>
+      <string id="ns20_ShowLockOption">OSDeploy Policy Win10</string>
+      <string id="ns21_EnableFirstLogonAnimation">OSDeploy Policy Win10</string>
+      <string id="ns21_VerboseStatus">OSDeploy Policy Win10</string>
+      <string id="ns22_DisableOSUpgrade_2">OSDeploy Policy Win10</string>
+      <string id="ns23_DisableDualScan">OSDeploy Policy Win10</string>
+      <string id="ns23_ExcludeWUDriversInQualityUpdate">OSDeploy Policy Win10</string>
+      <string id="ns23_ManagePreviewBuilds">OSDeploy Policy Win10</string>
+    </stringTable>
+  </resources>
+</policyComments>

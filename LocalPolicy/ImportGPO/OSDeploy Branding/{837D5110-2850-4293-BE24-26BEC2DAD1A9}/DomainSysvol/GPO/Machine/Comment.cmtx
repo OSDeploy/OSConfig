@@ -1,0 +1,25 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<policyComments xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/CommentDefinitions">
+  <policyNamespaces>
+    <using prefix="ns0" namespace="Microsoft.Policies.ControlPanelDisplay"></using>
+    <using prefix="ns1" namespace="Microsoft.Policies.MicrosoftEdge"></using>
+    <using prefix="ns2" namespace="Microsoft.Policies.StartMenu"></using>
+    <using prefix="ns3" namespace="Microsoft.Policies.WindowsExplorer"></using>
+  </policyNamespaces>
+  <comments>
+    <admTemplate>
+      <comment policyRef="ns0:CPL_Personalization_ForceDefaultLockScreen" commentText="$(resource.ns0_CPL_Personalization_ForceDefaultLockScreen)"></comment>
+      <comment policyRef="ns1:HomePages" commentText="$(resource.ns1_HomePages)"></comment>
+      <comment policyRef="ns2:LockedStartLayout" commentText="$(resource.ns2_LockedStartLayout)"></comment>
+      <comment policyRef="ns3:DefaultAssociationsConfiguration" commentText="$(resource.ns3_DefaultAssociationsConfiguration)"></comment>
+    </admTemplate>
+  </comments>
+  <resources minRequiredRevision="1.0">
+    <stringTable>
+      <string id="ns0_CPL_Personalization_ForceDefaultLockScreen">OSDeploy Branding</string>
+      <string id="ns1_HomePages">OSDeploy Branding</string>
+      <string id="ns2_LockedStartLayout">OSDeploy Branding</string>
+      <string id="ns3_DefaultAssociationsConfiguration">OSDeploy Branding</string>
+    </stringTable>
+  </resources>
+</policyComments>

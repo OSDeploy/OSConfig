@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.29
+#	Version: 18.8.30
 #	https://www.osdeploy.com/
 #======================================================================================
 #	Backup-GPO will backup OSDeploy GPO's into this directory

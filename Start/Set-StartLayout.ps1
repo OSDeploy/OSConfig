@@ -1,11 +1,15 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.29
+#	Version: 18.8.30
 #	https://www.osdeploy.com/
 #======================================================================================
-#   Set Error Preference
+#	Requirements
 #======================================================================================
+$RequiresOS = ""
+$RequiresOSReleaseId = ""
+$RequiresOSBuild = ""
 $ErrorActionPreference = 'SilentlyContinue'
+#$VerbosePreference = 'Continue'
 #======================================================================================
 #   Set OSDeploy
 #======================================================================================
@@ -26,19 +30,6 @@ $LogName = "$ScriptName-$((Get-Date).ToString('yyyy-MM-dd-HHmmss')).log"
 Start-Transcript -Path (Join-Path $OSConfigLogs $LogName)
 Write-Host ""
 Write-Host "Starting $ScriptName from $ScriptDirectory" -ForegroundColor Yellow
-#======================================================================================
-
-
-
-
-
-#======================================================================================
-#	Requirements
-#======================================================================================
-$RequiresOS = "Windows 10"
-$RequiresReleaseId = ""
-$RequiresBuild = ""
-#$VerbosePreference = 'Continue'
 #======================================================================================
 #	System Information
 #======================================================================================
@@ -130,12 +121,12 @@ if (!(Test-Path variable:\RequiresOS)) {
 	}
 }
 
-if (!(Test-Path variable:\RequiresReleaseId)) {
+if (!(Test-Path variable:\RequiresOSReleaseId)) {
 	Write-Host "OS Release Id requirement does not exist"
 } else {
-	if ($RequiresReleaseId -eq "") {
+	if ($RequiresOSReleaseId -eq "") {
 		Write-Host "OS Release Id requirement is empty"
-	} elseif ($ReleaseId -eq $RequiresReleaseId) {
+	} elseif ($ReleaseId -eq $RequiresOSReleaseId) {
 		Write-Host "OS Release Id requirement PASSED" -ForegroundColor Green
 	} else {
 		Write-Host "OS Release Id requirement FAILED ... Exiting" -ForegroundColor Red
@@ -144,12 +135,12 @@ if (!(Test-Path variable:\RequiresReleaseId)) {
 	}
 }
 
-if (!(Test-Path variable:\RequiresBuild)) {
+if (!(Test-Path variable:\RequiresOSBuild)) {
 	Write-Host "OS Build requirement does not exist"
 } else {
-	if ($RequiresBuild -eq "") {
+	if ($RequiresOSBuild -eq "") {
 		Write-Host "OS Build requirement is empty"
-	} elseif ($CurrentBuild -eq $RequiresBuild) {
+	} elseif ($CurrentBuild -eq $RequiresOSBuild) {
 		Write-Host "OS Build requirement PASSED" -ForegroundColor Green
 	} else {
 		Write-Host "OS Build requirement FAILED" -ForegroundColor Red
@@ -159,15 +150,32 @@ Write-Host ""
 #======================================================================================
 #	Import LayoutModification*.xml
 #======================================================================================
-$Source = "$env:ProgramData\OSConfig\Start\LayoutModification.xml"
-if (Test-Path $Source) {
-	Write-Host ""
-	Write-Host "Importing New User $Source" -ForegroundColor Cyan
-	Import-StartLayout -LayoutPath $Source -MountPath "$env:SystemDrive\"
+$LayoutModification = "$OSConfig\Start\LayoutModification.xml"
+$StartLayout = "$OSConfig\Start\StartLayout.xml"
+$StartLayoutDomain = "$OSConfig\Start\StartLayoutDomain.xml"
+
+if ($ProductName -like "*Windows 10*") {
+	$LayoutModificationOS = "$OSConfig\Start\LayoutModificationWin10.xml"
+	$StartLayoutOS = "$OSConfig\Start\StartLayoutWin10.xml"
+	$StartLayoutDomainOS = "$OSConfig\Start\StartLayoutDomainWin10.xml"
+}
+if ($ProductName -like "*Server 2016*") {
+	$LayoutModificationOS = "$OSConfig\Start\LayoutModificationServer2016.xml"
+	$StartLayoutOS = "$OSConfig\Start\StartLayoutServer2016.xml"
+	$StartLayoutDomainOS = "$OSConfig\Start\StartLayoutDomainServer2016.xml"
+}
+
+if (Test-Path $LayoutModificationOS) {Copy-Item $LayoutModificationOS $LayoutModification -Force}
+if (Test-Path $StartLayoutOS) {Copy-Item $StartLayoutOS $StartLayout -Force}
+if (Test-Path $StartLayoutDomainOS) {Copy-Item $StartLayoutDomainOS $StartLayoutDomain -Force}
+
+if (Test-Path $LayoutModification) {
+	Write-Host "Importing New User $LayoutModification" -ForegroundColor Cyan
+	Import-StartLayout -LayoutPath $LayoutModification -MountPath "$env:SystemDrive\"
 	Write-Host ""
 	Write-Host "Applying LayoutModification.xml to all existing User Profiles" -ForegroundColor Cyan
 	Get-ChildItem $Destination -Directory -Force | ForEach-Object {
-		Copy-Item -Path $Source -Destination $_"\LayoutModification.xml" -Force
+		Copy-Item -Path $LayoutModification -Destination $_"\LayoutModification.xml" -Force
 	}
 }
 #======================================================================================

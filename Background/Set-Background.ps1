@@ -1,11 +1,15 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.29
+#	Version: 18.8.30
 #	https://www.osdeploy.com/
 #======================================================================================
-#   Set Error Preference
+#	Requirements
 #======================================================================================
+$RequiresOS = ""
+$RequiresOSReleaseId = ""
+$RequiresOSBuild = ""
 $ErrorActionPreference = 'SilentlyContinue'
+#$VerbosePreference = 'Continue'
 #======================================================================================
 #   Set OSDeploy
 #======================================================================================
@@ -26,19 +30,6 @@ $LogName = "$ScriptName-$((Get-Date).ToString('yyyy-MM-dd-HHmmss')).log"
 Start-Transcript -Path (Join-Path $OSConfigLogs $LogName)
 Write-Host ""
 Write-Host "Starting $ScriptName from $ScriptDirectory" -ForegroundColor Yellow
-#======================================================================================
-
-
-
-
-
-#======================================================================================
-#	Requirements
-#======================================================================================
-$RequiresOS = ""
-$RequiresReleaseId = ""
-$RequiresBuild = ""
-#$VerbosePreference = 'Continue'
 #======================================================================================
 #	System Information
 #======================================================================================
@@ -130,12 +121,12 @@ if (!(Test-Path variable:\RequiresOS)) {
 	}
 }
 
-if (!(Test-Path variable:\RequiresReleaseId)) {
+if (!(Test-Path variable:\RequiresOSReleaseId)) {
 	Write-Host "OS Release Id requirement does not exist"
 } else {
-	if ($RequiresReleaseId -eq "") {
+	if ($RequiresOSReleaseId -eq "") {
 		Write-Host "OS Release Id requirement is empty"
-	} elseif ($ReleaseId -eq $RequiresReleaseId) {
+	} elseif ($ReleaseId -eq $RequiresOSReleaseId) {
 		Write-Host "OS Release Id requirement PASSED" -ForegroundColor Green
 	} else {
 		Write-Host "OS Release Id requirement FAILED ... Exiting" -ForegroundColor Red
@@ -144,12 +135,12 @@ if (!(Test-Path variable:\RequiresReleaseId)) {
 	}
 }
 
-if (!(Test-Path variable:\RequiresBuild)) {
+if (!(Test-Path variable:\RequiresOSBuild)) {
 	Write-Host "OS Build requirement does not exist"
 } else {
-	if ($RequiresBuild -eq "") {
+	if ($RequiresOSBuild -eq "") {
 		Write-Host "OS Build requirement is empty"
-	} elseif ($CurrentBuild -eq $RequiresBuild) {
+	} elseif ($CurrentBuild -eq $RequiresOSBuild) {
 		Write-Host "OS Build requirement PASSED" -ForegroundColor Green
 	} else {
 		Write-Host "OS Build requirement FAILED" -ForegroundColor Red
@@ -179,9 +170,14 @@ if (Test-Path $Source) {
 	}
 }
 #======================================================================================
-#	Windows 10 Copy Wallpaper
+#	Windows 10 and Server 2016 Copy Wallpaper
 #======================================================================================
 if ($ProductName -like "*Windows 10*") {
+	if (Test-Path "$env:ProgramData\OSConfig\Background\Web") {
+		robocopy "$env:ProgramData\OSConfig\Background\Web" "$env:windir\Web" *.* /e /ndl /nfl /b
+	}
+}
+if ($ProductName -like "*Server 2016*") {
 	if (Test-Path "$env:ProgramData\OSConfig\Background\Web") {
 		robocopy "$env:ProgramData\OSConfig\Background\Web" "$env:windir\Web" *.* /e /ndl /nfl /b
 	}

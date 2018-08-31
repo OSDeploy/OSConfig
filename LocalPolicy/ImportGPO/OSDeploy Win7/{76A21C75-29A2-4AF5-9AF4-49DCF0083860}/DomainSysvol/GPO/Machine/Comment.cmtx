@@ -1,0 +1,55 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<policyComments xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/CommentDefinitions">
+  <policyNamespaces>
+    <using prefix="ns0" namespace="Microsoft.Policies.AutoPlay"></using>
+    <using prefix="ns1" namespace="Microsoft.Policies.ControlPanel2"></using>
+    <using prefix="ns2" namespace="Microsoft.Policies.DeviceInstallation"></using>
+    <using prefix="ns3" namespace="Microsoft.Policies.DeviceSoftwareSetup"></using>
+    <using prefix="ns4" namespace="Microsoft.Policies.GameExplorer"></using>
+    <using prefix="ns5" namespace="Microsoft.Policies.InternetCommunicationManagement"></using>
+    <using prefix="ns6" namespace="Microsoft.Policies.NetworkSharing"></using>
+    <using prefix="ns7" namespace="Microsoft.Policies.OneDrive"></using>
+    <using prefix="ns8" namespace="Microsoft.Policies.SideBar"></using>
+    <using prefix="ns9" namespace="Microsoft.Policies.WindowsLogon"></using>
+  </policyNamespaces>
+  <comments>
+    <admTemplate>
+      <comment policyRef="ns0:Autorun" commentText="$(resource.ns0_Autorun)"></comment>
+      <comment policyRef="ns0:NoAutorun" commentText="$(resource.ns0_NoAutorun)"></comment>
+      <comment policyRef="ns1:UseDefaultTile" commentText="$(resource.ns1_UseDefaultTile)"></comment>
+      <comment policyRef="ns2:DeviceInstall_AllowAdminInstall" commentText="$(resource.ns2_DeviceInstall_AllowAdminInstall)"></comment>
+      <comment policyRef="ns3:DeviceMetadata_PreventDeviceMetadataFromNetwork" commentText="$(resource.ns3_DeviceMetadata_PreventDeviceMetadataFromNetwork)"></comment>
+      <comment policyRef="ns3:DriverSearchPlaces_SearchOrderConfiguration" commentText="$(resource.ns3_DriverSearchPlaces_SearchOrderConfiguration)"></comment>
+      <comment policyRef="ns3:DriverSearchPlaces_SearchServerConfiguration" commentText="$(resource.ns3_DriverSearchPlaces_SearchServerConfiguration)"></comment>
+      <comment policyRef="ns4:DownloadGameInfo_2" commentText="$(resource.ns4_DownloadGameInfo_2)"></comment>
+      <comment policyRef="ns4:GameUpdateOptions_2" commentText="$(resource.ns4_GameUpdateOptions_2)"></comment>
+      <comment policyRef="ns4:ListRecentlyPlayed_2" commentText="$(resource.ns4_ListRecentlyPlayed_2)"></comment>
+      <comment policyRef="ns5:RemoveWindowsUpdate_ICM" commentText="$(resource.ns5_RemoveWindowsUpdate_ICM)"></comment>
+      <comment policyRef="ns6:DisableHomeGroup" commentText="$(resource.ns6_DisableHomeGroup)"></comment>
+      <comment policyRef="ns7:PreventOnedriveFileSync" commentText="$(resource.ns7_PreventOnedriveFileSync)"></comment>
+      <comment policyRef="ns8:TurnOffSidebar_2" commentText="$(resource.ns8_TurnOffSidebar_2)"></comment>
+      <comment policyRef="ns9:UseOEMBackground" commentText="$(resource.ns9_UseOEMBackground)"></comment>
+      <comment policyRef="ns9:VerboseStatus" commentText="$(resource.ns9_VerboseStatus)"></comment>
+    </admTemplate>
+  </comments>
+  <resources minRequiredRevision="1.0">
+    <stringTable>
+      <string id="ns0_Autorun">OSDeploy Win7</string>
+      <string id="ns0_NoAutorun">OSDeploy Win7</string>
+      <string id="ns1_UseDefaultTile">OSDeploy Win7</string>
+      <string id="ns2_DeviceInstall_AllowAdminInstall">OSDeploy Win7</string>
+      <string id="ns3_DeviceMetadata_PreventDeviceMetadataFromNetwork">OSDeploy Win7</string>
+      <string id="ns3_DriverSearchPlaces_SearchOrderConfiguration">OSDeploy Win7</string>
+      <string id="ns3_DriverSearchPlaces_SearchServerConfiguration">OSDeploy Win7</string>
+      <string id="ns4_DownloadGameInfo_2">OSDeploy Win7</string>
+      <string id="ns4_GameUpdateOptions_2">OSDeploy Win7</string>
+      <string id="ns4_ListRecentlyPlayed_2">OSDeploy Win7</string>
+      <string id="ns5_RemoveWindowsUpdate_ICM">OSDeploy Win7</string>
+      <string id="ns6_DisableHomeGroup">OSDeploy Win7</string>
+      <string id="ns7_PreventOnedriveFileSync">OSDeploy Win7</string>
+      <string id="ns8_TurnOffSidebar_2">OSDeploy Win7</string>
+      <string id="ns9_UseOEMBackground">OSDeploy Win7</string>
+      <string id="ns9_VerboseStatus">OSDeploy Win7</string>
+    </stringTable>
+  </resources>
+</policyComments>

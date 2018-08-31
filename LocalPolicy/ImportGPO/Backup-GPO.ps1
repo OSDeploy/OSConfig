@@ -1,11 +1,11 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.30
+#	Version: 18.8.31
 #	https://www.osdeploy.com/
 #======================================================================================
 #	Backup-GPO will backup OSDeploy GPO's into this directory
 #======================================================================================
-$DomainGPOs = 'OSDeploy Branding','OSDeploy Policy Win7','OSDeploy Policy Win10'
+$DomainGPOs = 'OSDeploy Branding','OSDeploy Win7','OSDeploy Win10'
 
 foreach ($GPO in $DomainGPOs) {
     if (Test-Path "$PSScriptRoot\$GPO") {

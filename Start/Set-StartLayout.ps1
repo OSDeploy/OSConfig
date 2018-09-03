@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.30
+#	Version: 18.9.3
 #	https://www.osdeploy.com/
 #======================================================================================
 #	Requirements
@@ -153,6 +153,7 @@ Write-Host ""
 $LayoutModification = "$OSConfig\Start\LayoutModification.xml"
 $StartLayout = "$OSConfig\Start\StartLayout.xml"
 $StartLayoutDomain = "$OSConfig\Start\StartLayoutDomain.xml"
+$StartLayoutProfiles = "$env:SystemDrive\Users\*\AppData\Local\Microsoft\Windows\Shell"
 
 if ($ProductName -like "*Windows 10*") {
 	$LayoutModificationOS = "$OSConfig\Start\LayoutModificationWin10.xml"
@@ -174,16 +175,10 @@ if (Test-Path $LayoutModification) {
 	Import-StartLayout -LayoutPath $LayoutModification -MountPath "$env:SystemDrive\"
 	Write-Host ""
 	Write-Host "Applying LayoutModification.xml to all existing User Profiles" -ForegroundColor Cyan
-	Get-ChildItem $Destination -Directory -Force | ForEach-Object {
+	Get-ChildItem $StartLayoutProfiles -Directory -Force | ForEach-Object {
 		Copy-Item -Path $LayoutModification -Destination $_"\LayoutModification.xml" -Force
 	}
 }
-#======================================================================================
-
-
-
-
-
 #======================================================================================
 #	Enable the following lines for testing as needed
 #	Start-Process PowerShell_ISE.exe -Wait

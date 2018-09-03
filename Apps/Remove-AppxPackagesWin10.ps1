@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.30
+#	Version: 18.9.3
 #	https://www.osdeploy.com/
 #======================================================================================
 #	Requirements
@@ -234,12 +234,6 @@ Get-AppxPackage | Sort Name | Out-File -FilePath $LogAppxPackages -Append -Verbo
 
 Get-ProvisionedAppxPackage -Online | Sort DisplayName | Select DisplayName | Out-File -FilePath $LogProvisionedAppxPackages -Verbose
 Get-ProvisionedAppxPackage -Online | Sort DisplayName | Out-File -FilePath $LogProvisionedAppxPackages -Append -Verbose
-#======================================================================================
-
-
-
-
-
 #======================================================================================
 #	Enable the following lines for testing as needed
 #	Start-Process PowerShell_ISE.exe -Wait

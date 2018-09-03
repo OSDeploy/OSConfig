@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.30
+#	Version: 18.9.3
 #	https://www.osdeploy.com/
 #======================================================================================
 #   Set Error Preference
@@ -28,24 +28,12 @@ Start-Transcript -Path (Join-Path $OSConfigLogs $LogName)
 Write-Host ""
 Write-Host "Starting $ScriptName from $ScriptDirectory" -ForegroundColor Yellow
 #======================================================================================
-
-
-
-
-
-#======================================================================================
 #	Remove AppLocker Policies
 #======================================================================================
 if (Test-Path "$env:SystemRoot\System32\AppLocker") {
     Write-Host "Clearing Existing AppLocker Policies ..."
     Remove-Item $env:SystemRoot\System32\AppLocker\* -Recurse -Force
 }
-#======================================================================================
-
-
-
-
-
 #======================================================================================
 #	Enable the following lines for testing as needed
 #	Start-Process PowerShell_ISE.exe -Wait

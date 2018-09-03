@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.30
+#	Version: 18.9.3
 #	https://www.osdeploy.com/
 #======================================================================================
 #   Requirements
@@ -27,12 +27,6 @@ $LogName = "$ScriptName-$((Get-Date).ToString('yyyy-MM-dd-HHmmss')).log"
 Start-Transcript -Path (Join-Path $OSConfigLogs $LogName)
 Write-Host ""
 Write-Host "Starting $ScriptName from $ScriptDirectory" -ForegroundColor Yellow
-#======================================================================================
-
-
-
-
-
 #======================================================================================
 #   Relocate OSConfig
 #======================================================================================
@@ -86,12 +80,6 @@ foreach ($item in $OSConfigChild) {
     }
     Write-Host ""
 }
-#======================================================================================
-
-
-
-
-
 #======================================================================================
 #	Enable the following lines for testing as needed
 #	Start-Process PowerShell_ISE.exe -Wait

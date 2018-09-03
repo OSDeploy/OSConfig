@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.30
+#	Version: 18.9.3
 #	https://www.osdeploy.com/
 #======================================================================================
 #	Requirements
@@ -182,12 +182,6 @@ if ($ProductName -like "*Server 2016*") {
 		robocopy "$env:ProgramData\OSConfig\Background\Web" "$env:windir\Web" *.* /e /ndl /nfl /b
 	}
 }
-#======================================================================================
-
-
-
-
-
 #======================================================================================
 #	Enable the following lines for testing as needed
 #	Start-Process PowerShell_ISE.exe -Wait

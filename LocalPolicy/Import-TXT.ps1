@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.30
+#	Version: 18.9.3
 #	https://www.osdeploy.com/
 #======================================================================================
 #	Requirements
@@ -180,12 +180,6 @@ if (Test-Path $LGPO) {
 } else {
 	Write-Host "LGPO.exe was NOT located at $LGPO" -ForegroundColor Cyan
 }
-#======================================================================================
-
-
-
-
-
 #======================================================================================
 #	Enable the following lines for testing as needed
 #	Start-Process PowerShell_ISE.exe -Wait

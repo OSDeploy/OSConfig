@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.30
+#	Version: 18.9.3
 #	https://www.osdeploy.com/
 #======================================================================================
 #	Requirements
@@ -156,12 +156,6 @@ if ($SystemProductName -like "*Virtual*") {
 		Write-Host "reg $Modification" -ForegroundColor Green
 		Start-Process reg -ArgumentList $Modification -Wait -WindowStyle Hidden -ErrorAction SilentlyContinue
 }
-#======================================================================================
-
-
-
-
-
 #======================================================================================
 #	Enable the following lines for testing as needed
 #	Start-Process PowerShell_ISE.exe -Wait

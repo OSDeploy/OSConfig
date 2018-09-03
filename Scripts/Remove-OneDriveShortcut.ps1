@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.30
+#	Version: 18.9.3
 #	https://www.osdeploy.com/
 #======================================================================================
 #   Set Error Preference
@@ -28,24 +28,12 @@ Start-Transcript -Path (Join-Path $OSConfigLogs $LogName)
 Write-Host ""
 Write-Host "Starting $ScriptName from $ScriptDirectory" -ForegroundColor Yellow
 #======================================================================================
-
-
-
-
-
-#======================================================================================
 #	Remove OneDrive Shortcut
 #======================================================================================
 if (Test-Path "C:\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk") {
 	Write-Host "Removing OneDrive Start Menu Shortcut" -ForegroundColor Green
 	Remove-Item "C:\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk" -Force -ErrorAction SilentlyContinue
 }
-#======================================================================================
-
-
-
-
-
 #======================================================================================
 #	Enable the following lines for testing as needed
 #	Start-Process PowerShell_ISE.exe -Wait

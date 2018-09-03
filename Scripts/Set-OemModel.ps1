@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.30
+#	Version: 18.9.3
 #	https://www.osdeploy.com/
 #======================================================================================
 #	Requirements
@@ -151,13 +151,8 @@ Write-Host ""
 #	Add Computer Model to OEM Information
 #======================================================================================
 $ComputerModel = "$SystemManufacturer $SystemProductName"
+Write-Host "Setting Computer Model to '$ComputerModel'"
 New-ItemProperty -LiteralPath 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\OEMInformation' -Name 'Model' -Value $ComputerModel -Force | Out-Null
-#======================================================================================
-
-
-
-
-
 #======================================================================================
 #	Enable the following lines for testing as needed
 #	Start-Process PowerShell_ISE.exe -Wait

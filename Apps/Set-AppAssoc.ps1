@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.30
+#	Version: 18.9.3
 #	https://www.osdeploy.com/
 #======================================================================================
 #	Requirements
@@ -161,12 +161,6 @@ if (Test-Path $AppAssoc) {
 	Write-Host "Importing Default App Association file $AppAssoc"
 	dism /online /Import-DefaultAppAssociations:$AppAssoc
 }
-#======================================================================================
-
-
-
-
-
 #======================================================================================
 #	Enable the following lines for testing as needed
 #	Start-Process PowerShell_ISE.exe -Wait

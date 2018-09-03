@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.8.30
+#	Version: 18.9.3
 #	https://www.osdeploy.com/
 #======================================================================================
 #	Requirements
@@ -153,12 +153,6 @@ Write-Host ""
 Write-Host ""
 Write-Host "Setting RemoteRegistry Service to Automatic" -ForegroundColor Green
 Set-Service -Name RemoteRegistry -StartupType Automatic
-#======================================================================================
-
-
-
-
-
 #======================================================================================
 #	Enable the following lines for testing as needed
 #	Start-Process PowerShell_ISE.exe -Wait

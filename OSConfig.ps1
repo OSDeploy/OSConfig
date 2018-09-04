@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.9.3
+#	Version: 18.9.4
 #	https://www.osdeploy.com/
 #======================================================================================
 #   Requirements
@@ -28,15 +28,35 @@ Start-Transcript -Path (Join-Path $OSConfigLogs $LogName)
 Write-Host ""
 Write-Host "Starting $ScriptName from $ScriptDirectory" -ForegroundColor Yellow
 #======================================================================================
-#   Relocate OSConfig
+#   Remove Existing OSConfig
 #======================================================================================
-if ($ScriptDirectory -ne $OSConfig){
+if ($ScriptDirectory -ne $OSConfig) {
 	if (Test-Path $OSConfig) {
 		Write-Host "Removing existing $OSConfig..." -ForegroundColor Yellow
 		Remove-Item -Path $OSConfig -Recurse -Force
-	}
-    Write-Host "Copying $ScriptDirectory to $OSConfig..." -ForegroundColor Yellow
-    Copy-Item -Path $ScriptDirectory -Destination $OSConfig -Recurse
+    }
+}
+#======================================================================================
+#   Check for Provisioning Package
+#====================================================================================== 
+if ($ScriptDirectory -like "*ProvisioningPkgTmp*") {
+    Write-Host "OSConfig is running from a Provisioning Package ..." -ForegroundColor Yellow
+    #======================================================================================
+    #   Expand Provisioning Package
+    #====================================================================================== 
+    if (Test-Path "$ScriptDirectory\OSConfig.cab") {
+        if (!(Test-Path $OSConfig)) {New-Item -ItemType Directory -Path $OSConfig}
+        Write-Host "Expanding '$ScriptDirectory\OSConfig.cab' to '$OSConfig'..." -ForegroundColor Yellow
+        expand "$ScriptDirectory\OSConfig.cab" $OSConfig -F:*
+    }
+} else {
+    #======================================================================================
+    #   Copy Files
+    #====================================================================================== 
+    if ($ScriptDirectory -ne $OSConfig) {
+        Write-Host "Copying '$ScriptDirectory' to '$OSConfig'..." -ForegroundColor Yellow
+        Copy-Item -Path $ScriptDirectory -Destination $OSConfig -Recurse
+    }
 }
 #======================================================================================
 #	Capture the Environment Variables in the Log
@@ -61,22 +81,23 @@ foreach ($item in $OSConfigChild) {
 	
     foreach ($script in $OSConfigScripts) {
         Write-Host "Executing $($script.FullName)"
-		
-		#Normal processing
-        #Start-Process PowerShell.exe -ArgumentList "-file `"$($script.FullName)`"" -Wait
-		
-		#Hidden Window
-        #Start-Process PowerShell.exe -ArgumentList "-file `"$($script.FullName)`"" -Wait -WindowStyle Hidden
-		
-		#Minimized Window
-        Start-Process PowerShell.exe -ArgumentList "-file `"$($script.FullName)`"" -Wait -WindowStyle Minimized
-		
-		#Maximized Window
-        #Start-Process PowerShell.exe -ArgumentList "-file `"$($script.FullName)`"" -Wait -WindowStyle Maximized
-		
-		#Same Window
-		#Start-Process PowerShell.exe -ArgumentList "-file `"$($script.FullName)`"" -Wait -NoNewWindow
-		
+        #======================================================================================
+        #	Execute Provisioning Package Minimized
+        #   Change WindowStyle to Hidden when testing is complete
+        #======================================================================================
+        if (Test-Path "$ScriptDirectory\OSConfig.cab") {
+            Start-Process PowerShell.exe -ArgumentList "-file `"$($script.FullName)`"" -Wait -WindowStyle Minimized
+        #======================================================================================
+        #	Execute Standard PowerShell Script
+        #   Choose proper WindowStyle
+        #======================================================================================
+        } else {
+            #Start-Process PowerShell.exe -ArgumentList "-file `"$($script.FullName)`"" -Wait
+            #Start-Process PowerShell.exe -ArgumentList "-file `"$($script.FullName)`"" -Wait -NoNewWindow
+            Start-Process PowerShell.exe -ArgumentList "-file `"$($script.FullName)`"" -Wait -WindowStyle Minimized
+            #Start-Process PowerShell.exe -ArgumentList "-file `"$($script.FullName)`"" -Wait -WindowStyle Maximized
+            #Start-Process PowerShell.exe -ArgumentList "-file `"$($script.FullName)`"" -Wait -WindowStyle Hidden
+        }
     }
     Write-Host ""
 }

@@ -1,6 +1,6 @@
 #======================================================================================
 #	Author: David Segura
-#	Version: 18.9.3
+#	Version: 18.9.4
 #	https://www.osdeploy.com/
 #======================================================================================
 #	Requirements
@@ -170,7 +170,7 @@ if (Test-Path $LGPO) {
 	#======================================================================================
 	foreach ($Policy in $GPOPolicies) {
 		Write-Host "Applying LGPO Policy $($Policy.FullName)" -ForegroundColor Green
-		Start-Process $LGPO -ArgumentList "/v /g `"$($Policy.FullName)`"" -Wait -ErrorAction SilentlyContinue
+		Start-Process $LGPO -ArgumentList "/v /g `"$($Policy.FullName)`"" -Wait -ErrorAction SilentlyContinue -WindowStyle Minimized
 	}
 	#======================================================================================
 	# Gather Registry XML
@@ -190,11 +190,11 @@ if (Test-Path $LGPO) {
 		#======================================================================================
 		if (Test-Path "C:\Users\Default\NTUser.dat") {
 			Write-Host "Loading Default User NTUser.dat" -ForegroundColor Cyan
-			Start-Process reg -ArgumentList "load HKLM\MountedDefaultUser C:\Users\Default\NTUser.dat" -Wait -WindowStyle Hidden -ErrorAction SilentlyContinue
+			Start-Process reg -ArgumentList "load HKLM\MountedDefaultUser C:\Users\Default\NTUser.dat" -Wait -ErrorAction SilentlyContinue -WindowStyle Hidden
 		}
 		if (Test-Path "C:\Users\Administrator\NTUser.dat") {
 			Write-Host "Loading Administrator NTUser.dat" -ForegroundColor Cyan
-			Start-Process reg -ArgumentList "load HKLM\MountedAdministrator C:\Users\Administrator\NTUser.dat" -Wait -WindowStyle Hidden -ErrorAction SilentlyContinue
+			Start-Process reg -ArgumentList "load HKLM\MountedAdministrator C:\Users\Administrator\NTUser.dat" -Wait -ErrorAction SilentlyContinue -WindowStyle Hidden
 		}
 		#======================================================================================
 		# Process Registry XML

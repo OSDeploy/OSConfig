@@ -164,7 +164,7 @@ if (Test-Path $LGPO) {
 	$GPOPolicies = Get-ChildItem "$ScriptDirectory\ImportGPO" -Directory
 	if ($ProductName -like "*Windows 7*") {$GPOPolicies = $GPOPolicies | Where-Object {$_.FullName -NotLike "*Win10*" -and $_.FullName -NotLike "*Server*"}}
 	if ($ProductName -like "*Windows 10*") {$GPOPolicies = $GPOPolicies | Where-Object {$_.FullName -NotLike "*Win7*" -and $_.FullName -NotLike "*Server*"}}
-	if ($ProductName -like "*Windows Server") {$GPOPolicies = $GPOPolicies | Where-Object {$_.FullName -NotLike "*Win7*" -and $_.FullName -NotLike "*Win10*"}}
+	if ($ProductName -like "*Windows Server*") {$GPOPolicies = $GPOPolicies | Where-Object {$_.FullName -NotLike "*Win7*" -and $_.FullName -NotLike "*Win10*"}}
 	#======================================================================================
 	#	Import LGPO Policies
 	#======================================================================================
@@ -178,7 +178,7 @@ if (Test-Path $LGPO) {
 	$GPOPreferences = Get-ChildItem "$ScriptDirectory\ImportGPO" Registry.xml -Recurse
 	if ($ProductName -like "*Windows 7*") {$GPOPreferences = $GPOPreferences | Where-Object {$_.FullName -NotLike "*Win10*" -and $_.FullName -NotLike "*Server*"}}
 	if ($ProductName -like "*Windows 10*") {$GPOPreferences = $GPOPreferences | Where-Object {$_.FullName -NotLike "*Win7*" -and $_.FullName -NotLike "*Server*"}}
-	if ($ProductName -like "*Windows Server") {$GPOPolicies = $GPOPolicies | Where-Object {$_.FullName -NotLike "*Win7*" -and $_.FullName -NotLike "*Win10*"}}
+	if ($ProductName -like "*Windows Server*") {$GPOPolicies = $GPOPolicies | Where-Object {$_.FullName -NotLike "*Win7*" -and $_.FullName -NotLike "*Win10*"}}
 	#======================================================================================
 	# Import Registry XML
 	#======================================================================================

@@ -164,7 +164,7 @@ if (Test-Path $LGPO) {
 	$GPOPolicies = Get-ChildItem "$ScriptDirectory\ImportTXT" -Filter *.txt -File
 	if ($ProductName -like "*Windows 7*") {$GPOPolicies = $GPOPolicies | Where-Object {$_.FullName -NotLike "*Win10*"}}
 	if ($ProductName -like "*Windows 10*") {$GPOPolicies = $GPOPolicies | Where-Object {$_.FullName -NotLike "*Win7*"}}
-	if ($ProductName -like "*Windows Server") {$GPOPolicies = $GPOPolicies | Where-Object {$_.FullName -NotLike "*Win7*" -and $_.FullName -NotLike "*Win10*"}}
+	if ($ProductName -like "*Windows Server*") {$GPOPolicies = $GPOPolicies | Where-Object {$_.FullName -NotLike "*Win7*" -and $_.FullName -NotLike "*Win10*"}}
 	#======================================================================================
 	#	Import LGPO TXT
 	#======================================================================================

@@ -155,7 +155,7 @@ Write-Host ""
 $GPOPreferences = Get-ChildItem "$ScriptDirectory\ImportXML" *.xml -Recurse
 if ($ProductName -like "*Windows 7*") {$GPOPreferences = $GPOPreferences | Where-Object {$_.FullName -NotLike "*Win10*"}}
 if ($ProductName -like "*Windows 10*") {$GPOPreferences = $GPOPreferences | Where-Object {$_.FullName -NotLike "*Win7*"}}
-if ($ProductName -like "*Windows Server") {$GPOPreferences = $GPOPreferences | Where-Object {$_.FullName -NotLike "*Win7*" -and $_.FullName -NotLike "*Win10*"}}
+if ($ProductName -like "*Windows Server*") {$GPOPreferences = $GPOPreferences | Where-Object {$_.FullName -NotLike "*Win7*" -and $_.FullName -NotLike "*Win10*"}}
 #======================================================================================
 #	Import Registry XML
 #======================================================================================
